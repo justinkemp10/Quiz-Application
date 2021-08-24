@@ -13,7 +13,7 @@ Build a timed coding quiz with multiple-choice questions using Javascript fundam
 
 ## Mock-Up ##
 
-The following animation is a demonstration of the application's functionality;
+The following animation is a demonstration of the application's functionality:
 
 
-Here is a link to the deployed application: 
+Here is a link to the deployed application: [Quiz Application](https://justinkemp10.github.io/Quiz-Application/)
