@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge" /> -->
+    <title>Coding Quiz - Home page</title>
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div id="game" class="justify-center flex-column">
+            <div id="hud">
+                <div class="hud-item">
+                    <a href="highscores.html" id="progressText" class="hud-prefix">View High Scores</a>
+                </div>
+                <div class="hud-item">
+                    <p class="hud-prefix">
+                        Timer
+                    </p>
+                    <h1 id="timeLeft">0</h1>
+                </div>
+            </div>
+            <div class="hidden" id="quizQuestion">
+                <h1>What is the answer to this question?</h1>
+                <ul class="choicesUl"></ul>
+            </div>
+            <div class="justify-content text-center" id="welcomeContainer">
+                <!-- welcome message -->
+                <h1>Welcome to the Coding Quiz</h1>
+                <p>Would you like to play a game? Click 'Start Quiz' below.</p>
+                <button class="btn-small" id="startQuizBtn">Start Quiz</button>
+            </div>
+            <div id="highScoresContainer">
+                <!-- High Scores -->
+                <button></button>
+            </div>
+        </div>
+    </div>
+        
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
