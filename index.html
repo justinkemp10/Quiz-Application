@@ -21,11 +21,11 @@
                     <p class="hud-prefix">
                         Timer
                     </p>
-                    <h1 id="timeLeft">0</h1>
+                    <h1 id="timeLeft">75</h1>
                 </div>
             </div>
-            <div class="hidden" id="quizQuestion">
-                <h1>What is the answer to this question?</h1>
+            <div class="hidden" id="questionContainer">
+                <h1 id="quizQuestion">What is the answer to this question?</h1>
                 <ul class="choicesUl"></ul>
             </div>
             <div class="justify-content text-center" id="welcomeContainer">
@@ -34,8 +34,9 @@
                 <p>Would you like to play a game? Click 'Start Quiz' below.</p>
                 <button class="btn-small" id="startQuizBtn">Start Quiz</button>
             </div>
-            <div id="highScoresContainer">
+            <div id="highScoresContainer" class="hidden">
                 <!-- High Scores -->
+                <ul class="highScoresUl"></ul>
                 <button></button>
             </div>
         </div>

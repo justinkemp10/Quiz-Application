@@ -29,7 +29,10 @@ var questions = [
 // declare variables for start button, the quiz questions, & question container
 var startBtn = document.querySelector('#startQuizBtn');
 var questionText = document.querySelector('#quizQuestion');
+var welcomeContainer = document.querySelector('#welcomeContainer');
+var highScoresContainer = document.querySelector('#highScoresContainer');
 var questionContainer = document.querySelector('#questionContainer');
+
 
 // declare variables for multiple choices, 
 var choicesUl = document.querySelector('.choicesUl');
@@ -37,7 +40,7 @@ var scoreText = document.querySelector('#highScoresContainer');
 var hidden = document.querySelector('.hidden');
 var timeLeft = document.querySelector('#timeLeft');
 
-var secondsLeft = 76;
+var secondsLeft = 75;
 var intervalId;
 var penalty = 15;
 var holdInterval = 0;
@@ -47,57 +50,58 @@ var acceptingAnswers = true;
 var score = 0;
 var questionCounter = 0;
 var availableQuestions = [];
-var ulCreate = document.createElement("ul");
 
 var questionAmount = 5;
 var SCORE_POINTS = timeLeft;
 
-function startGame() {
-    // remove welcome page
-    // display hidden questions
-    startBtn.addEventListener('click', function () {
-        document.getElementById('welcomeContainer').style.display = 'none'
-        $("div").removeClass("hidden");
-        
-        if (holdInterval === 0) {
-            holdInterval = setInterval(function () {
-                secondsLeft--;
-                timeLeft.textContent = secondsLeft;
-                
-                if (secondsLeft <= 0) {
-                    clearInterval(holdInterval);
-                    timerDone();
-                    timeLeft.textContent = "Time's Up!";
-                }
-            }, 1000);
-        }
-        showQuestion(questionCounter);
-    });    
+startBtn.addEventListener('click', function () {
+    startQuiz();
+});
 
+function startQuiz() {
+    welcomeContainer.classList.add('hidden');
+    questionContainer.classList.remove('hidden');
+    
+    startTimer();
+    showQuestion(questionCounter);
 }
 
-startGame();
+function startTimer() {
+    if (!intervalId) {
+        intervalId = setInterval(function () {
+            // secondsLeft--;
+            timeLeft.textContent = --secondsLeft;
+            
+            if (secondsLeft <= 0) {
+                clearInterval(intervalId);
+                timerDone();
+                timeLeft.textContent = "Time's Up!";
+            }
+        }, 1000);
+    }
+}
 
 function showQuestion(questionCounter) {
+    var listItem;
+    var newItem;
+    var ulCreate = document.createElement("ul");
+
+    // TO DO: take the current question object from the questions array
+    // using the questionCounter index
+    var questionObject = questions[questionCounter];
+    // TO DO: get the question text and assign it to the element that has the id quizQuestion
     questionText.innerHTML = "";
-    ulCreate.innerHTML = "";
-
-    for (var i = 0; i < questions.length; i++) {
-        var userQuestion = questions[questionCounter].question;
-        var userChoices = questions[questionCounter].choices;
-        questionText.textContent = userQuestion;
-        choicesUl.textContent = userChoices;
-
-    }
-
-    userChoices.forEach(function (newItem) {
-        var listItem = document.createElement("li");
+    quizQuestion.textContent = questionObject.question;
+    for (var i = 0; i < questionObject.choices.length; i++) {
+        // construct your list item (<li></li>)
+        newItem = questionObject.choices[i];
+        listItem = document.createElement("li");
         listItem.setAttribute("class", "choiceList");
         listItem.textContent = newItem;
         questionText.appendChild(ulCreate);
         ulCreate.appendChild(listItem);
-        listItem.addEventListener("click", (compare));
-    })
+        listItem.addEventListener("click", compare);
+    }
 }
 
 function compare(event) {
@@ -125,9 +129,15 @@ function compare(event) {
     quizQuestion.appendChild(createDiv);
 }
 
+function stopTimer() {
+    clearInterval(intervalId);
+    console.log(secondsLeft);
+}
+
 function timerDone() {
+    stopTimer();
+    timeLeft.textContent = secondsLeft;
     quizQuestion.innerHTML = "";
-    timeLeft.innerHTML = "";
 
     var createH1 = document.createElement("h1");
     createH1.setAttribute("id", "createH1");
@@ -170,13 +180,17 @@ function timerDone() {
 
     createSubmit.addEventListener("click", function () {
         var initials = createInput.value;
+        var currentScore = secondsLeft;
+
+        clearInterval(holdInterval);
+        timeLeft.textContent = "- -";
         
         if (initials === null) {
             console.log("No value entered!");
         } else {
             var finalScore = {
                 initials: initials,
-                score: timeLeft.value
+                score: currentScore
             }
             console.log(finalScore);
             var allScores = localStorage.getItem("allScores");
