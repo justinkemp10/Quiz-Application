@@ -15,5 +15,7 @@ Build a timed coding quiz with multiple-choice questions using Javascript fundam
 
 The following animation is a demonstration of the application's functionality:
 
+![A user clicks start quiz and follows a simple 5 question coding quiz.](./assets/quiz_app_preview.gif)
+
 
 Here is a link to the deployed application: [Quiz Application](https://justinkemp10.github.io/Quiz-Application/)

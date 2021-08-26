@@ -1,29 +1,29 @@
 // declared variables for the 5 questions
 var questions = [
     {
-        question: "What is the capital of Nebraska?",
-        choices: ["Omaha", "Nebraska City", "Lincoln", "Grand Island"],
-        answer: "Lincoln"
+        question: "Inside which HTML element do we put Javascript?",
+        choices: ["<js>", "<javascript>", "<a>", "<script>"],
+        answer: "<script>"
     },
     {
-        question: "Who is the 41st President of the United States?",
-        choices: ["Ronald Reagan", "George H.W. Bush", "Bill Clinton", "Joe Biden"],
-        answer: "George H.W. Bush"
+        question: "Where is the correct place to insert a Javascript?",
+        choices: ["At the end of <body>", "In the <head>", "Both the <head> & <body>", "Anywhere"],
+        answer: "At the end of <body>"
     },
     {
-        question: "What is the state bird of Minnesota?",
-        choices: ["American Goldfinch", "Woodpecker", "Cardinal", "Common loon"],
-        answer: "Common loon"
+        question: "What is the correct syntax for referring to an external script 'xxx.js'?",
+        choices: ["<script src='xxx.js'>", "<script name='xxx.js'>", "<script href='xxx.js'>", "<script id='xxx.js'>"],
+        answer: "<script src='xxx.js'>"
     },
     {
-        question: "What is the longest river in the United States?",
-        choices: ["Mississippi River", "Yukon River", "Missouri River", "Rio Grande"],
-        answer: "Missouri River"
+        question: "How do you write 'Hello World' in an alert box?",
+        choices: ["msg('Hello World');", "alert('Hello World');", "alertBox('Hello World');", "msgBox('Hello World');"],
+        answer: "alert('Hello World');"
     },
     {
-        question: "What was the first declared state in America?",
-        choices: ["Pennsylvania", "New Jersey", "Delaware", "Rhode Island"],
-        answer: "Delaware"
+        question: "How do you create a function in Javascript?",
+        choices: ["function = myFunction()", "function:myFunction()", "function myFunction()", "myFunction()"],
+        answer: "function myFunction()"
     }
 ]
 // declare variables for start button, the quiz questions, & question container
